@@ -1,6 +1,6 @@
 import { view, Component, Events, Store } from '@storefront/core';
 
-@view('gb-template', require('./index.html'), require('./index.css'))
+@view('gb-template', require('./index.html'))
 class Template extends Component {
 
   props: Template.Props;
@@ -16,11 +16,11 @@ class Template extends Component {
   }
 
   updateZones = (template: Store.Template) => {
-    const isActive = template.name === this.props.target;
-    if (!this.state.isActive !== !isActive) {
+    if (this.state.rule !== template.rule) {
+      const isActive = template.name === this.props.target;
       this.set({
         isActive,
-        rule: isActive ? template.rule : null,
+        rule: template.rule,
         zones: isActive ? template.zones : {}
       });
     }

@@ -1,3 +1,4 @@
 import Template from './template';
+import Zone from './zone';
 
-export = { Template };
+export { Template, Zone };
