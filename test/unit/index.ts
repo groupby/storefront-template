@@ -1,6 +1,6 @@
 import * as pkg from '../../src';
+import ContentZone from '../../src/content-zone';
 import Template from '../../src/template';
-import Zone from '../../src/zone';
 import suite from './_suite';
 
 suite('package', ({ expect }) => {
@@ -8,7 +8,7 @@ suite('package', ({ expect }) => {
     expect(pkg.Template).to.eq(Template);
   });
 
-  it('should expose Zone', () => {
-    expect(pkg.Zone).to.eq(Zone);
+  it('should expose ContentZone', () => {
+    expect(pkg.ContentZone).to.eq(ContentZone);
   });
 });
