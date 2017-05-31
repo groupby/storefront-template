@@ -1,7 +1,5 @@
-import { view, Component } from '@storefront/core';
+import { tag } from '@storefront/core';
 import Zone from '../zone';
 
-@view('gb-content-zone', '{ $zone.content }')
-class ContentZone extends Zone { }
-
-export default ContentZone;
+@tag('gb-content-zone', '{ $zone.content }')
+export default class ContentZone extends Zone { }

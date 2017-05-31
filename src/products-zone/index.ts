@@ -1,10 +1,10 @@
-import { view, Component, ProductTransformer, Store, Structure } from '@storefront/core';
+import { tag, ProductTransformer, Store, Structure, Tag } from '@storefront/core';
 import Zone from '../zone';
 
-@view('gb-products-zone', require('./index.html'))
-class ProductsZone extends Component {
+@tag('gb-products-zone', require('./index.html'))
+class ProductsZone {
+
   structure: Structure = this.config.structure;
-  props: ProductsZone.Props;
 
   onBeforeMount() {
     const { products, ...zone } = this.props.zone;
@@ -16,6 +16,7 @@ class ProductsZone extends Component {
   }
 }
 
+interface ProductsZone extends Tag<ProductsZone.Props> { }
 namespace ProductsZone {
   export interface Props extends Zone.Props {
     zone: Store.ProductsZone;

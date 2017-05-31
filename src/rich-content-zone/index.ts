@@ -1,7 +1,5 @@
-import { view } from '@storefront/core';
+import { tag } from '@storefront/core';
 import Zone from '../zone';
 
-@view('gb-rich-content-zone', '<gb-raw content="{ $zone.content }"></gb-raw>')
-class RichContentZone extends Zone { }
-
-export default RichContentZone;
+@tag('gb-rich-content-zone', '<gb-raw content="{ $zone.content }"></gb-raw>')
+export default class RichContentZone extends Zone { }

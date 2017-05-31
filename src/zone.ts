@@ -1,16 +1,13 @@
 import { Component, Store, Tag } from '@storefront/core';
 
-interface Zone extends Tag.Instance { }
-
-class Zone {
-  props: Zone.Props;
+abstract class Zone {
 
   onBeforeMount() {
-    this.state = { ...this.props.zone };
-    this.expose('zone');
+    this.expose('zone', this.props.zone);
   }
 }
 
+interface Zone extends Tag<Zone.Props> { }
 namespace Zone {
   export interface Props {
     zone: Store.Zone;

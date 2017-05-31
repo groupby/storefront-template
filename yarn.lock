@@ -36,8 +36,8 @@
     github-url-from-git "^1.4.0"
 
 "@storefront/core@dev":
-  version "0.0.25-development"
-  resolved "https://registry.yarnpkg.com/@storefront/core/-/core-0.0.25-development.tgz#c312f2c780ac64308fa1c3a593ebfb3bb27a9c56"
+  version "0.0.26-development"
+  resolved "https://registry.yarnpkg.com/@storefront/core/-/core-0.0.26-development.tgz#ecfaab47a4b66e359c86d74e29b3c2133d9c4d84"
   dependencies:
     "@storefront/core" dev
     "@storefront/flux-capacitor" dev
@@ -59,8 +59,8 @@
     urijs "^1.18.10"
 
 "@storefront/flux-capacitor@dev":
-  version "0.0.20-development"
-  resolved "https://registry.yarnpkg.com/@storefront/flux-capacitor/-/flux-capacitor-0.0.20-development.tgz#5a67fcbf8721b16e1301d47fc3e0b94c82798a0e"
+  version "0.0.21-development"
+  resolved "https://registry.yarnpkg.com/@storefront/flux-capacitor/-/flux-capacitor-0.0.21-development.tgz#34dc18c9f83c55b8000c245492e68add2f36e146"
   dependencies:
     "@types/redux-logger" "^3.0.0"
     "@types/uuid" "^2.0.29"
@@ -176,8 +176,8 @@ acorn@^5.0.0, acorn@^5.0.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
 agent-base@2:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-2.1.0.tgz#193455e4347bca6b05847cb81e939bb325446da8"
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-2.1.1.tgz#d6de10d5af6132d5bd692427d46fc538539094c7"
   dependencies:
     extend "~3.0.0"
     semver "~5.0.1"
@@ -3036,8 +3036,8 @@ node-libs-browser@^2.0.0:
     vm-browserify "0.0.4"
 
 node-pre-gyp@^0.6.29:
-  version "0.6.34"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.34.tgz#94ad1c798a11d7fc67381b50d47f8cc18d9799f7"
+  version "0.6.36"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.36.tgz#db604112cb74e0d477554e9b505b17abddfab786"
   dependencies:
     mkdirp "^0.5.1"
     nopt "^4.0.1"
@@ -4434,8 +4434,8 @@ tslint@^5.3.2:
     tsutils "^2.0.0"
 
 tsutils@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.2.0.tgz#218614657f21c677e4536b4ba75daf8ebce1b367"
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.3.0.tgz#96e661d7c2363f31adc8992ac67bbe7b7fc175e5"
 
 tty-browserify@0.0.0:
   version "0.0.0"
@@ -4478,8 +4478,8 @@ typescript-compiler@^1.4.1-2:
   resolved "https://registry.yarnpkg.com/typescript-compiler/-/typescript-compiler-1.4.1.tgz#3639a276d7f3bc97ddbe121fd933713d475a9aa8"
 
 typescript@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.3.tgz#9639f3c3b40148e8ca97fe08a51dd1891bb6be22"
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
 
 uglify-js@^2.6, uglify-js@^2.8.27:
   version "2.8.27"

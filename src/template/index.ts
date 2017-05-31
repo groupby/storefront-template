@@ -1,16 +1,14 @@
-import { view, Component, Events, Store } from '@storefront/core';
+import { tag, Events, Store, Tag } from '@storefront/core';
 
-@view('gb-template', require('./index.html'))
-class Template extends Component {
+@tag('gb-template', require('./index.html'))
+class Template {
 
-  props: Template.Props;
   state: Template.State = {
     isActive: false,
     zones: {}
   };
 
-  constructor() {
-    super();
+  init() {
     this.expose('template');
     this.flux.on(Events.TEMPLATE_UPDATED, this.updateZones);
   }
@@ -27,10 +25,12 @@ class Template extends Component {
   }
 }
 
+interface Template extends Tag<Template.Props, Template.State> { }
 namespace Template {
   export interface Props {
     target: string;
   }
+
   export interface State {
     isActive: boolean;
     rule?: string;
