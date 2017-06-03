@@ -1,8 +1,8 @@
-import { Component, Store, Tag } from '@storefront/core';
+import { Store, Tag } from '@storefront/core';
 
 abstract class Zone {
 
-  onBeforeMount() {
+  init() {
     this.expose('zone', this.props.zone);
   }
 }

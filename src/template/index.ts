@@ -1,5 +1,6 @@
-import { tag, Events, Store, Tag } from '@storefront/core';
+import { alias, tag, Events, Store, Tag } from '@storefront/core';
 
+@alias('template')
 @tag('gb-template', require('./index.html'))
 class Template {
 
@@ -9,7 +10,6 @@ class Template {
   };
 
   init() {
-    this.expose('template');
     this.flux.on(Events.TEMPLATE_UPDATED, this.updateZones);
   }
 
