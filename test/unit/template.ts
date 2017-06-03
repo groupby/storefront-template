@@ -8,15 +8,6 @@ suite('Template', ({ expect, spy }) => {
   beforeEach(() => template = new Template());
 
   describe('init()', () => {
-    it('should call expose()', () => {
-      const expose = template.expose = spy();
-      template.flux = <any>{ on: () => null };
-
-      template.init();
-
-      expect(expose.calledWith('template')).to.be.true;
-    });
-
     it('should listen for TEMPLATE_UPDATED', () => {
       const on = spy();
       template.flux = <any>{ on };
