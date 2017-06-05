@@ -5,6 +5,10 @@ abstract class Zone {
   init() {
     this.expose('zone', this.props.zone);
   }
+
+  onUpdate() {
+    this.updateAlias('zone', this.props.zone);
+  }
 }
 
 interface Zone extends Tag<Zone.Props> { }
