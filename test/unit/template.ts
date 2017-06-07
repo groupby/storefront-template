@@ -7,6 +7,17 @@ suite('Template', ({ expect, spy }) => {
 
   beforeEach(() => template = new Template());
 
+  describe('constructor()', () => {
+    describe('state', () => {
+      it('should have initial value', () => {
+        expect(template.state).to.eql({
+          isActive: false,
+          zones: {}
+        });
+      });
+    });
+  });
+
   describe('init()', () => {
     it('should listen for TEMPLATE_UPDATED', () => {
       const on = spy();
