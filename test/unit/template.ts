@@ -7,6 +7,17 @@ suite('Template', ({ expect, spy }) => {
 
   beforeEach(() => template = new Template());
 
+  describe('constructor()', () => {
+    describe('state', () => {
+      it('should have initial value', () => {
+        expect(template.state).to.eql({
+          isActive: false,
+          zones: {}
+        });
+      });
+    });
+  });
+
   describe('init()', () => {
     it('should listen for TEMPLATE_UPDATED', () => {
       const on = spy();
@@ -15,7 +26,7 @@ suite('Template', ({ expect, spy }) => {
 
       template.init();
 
-      expect(on.calledWith(Events.TEMPLATE_UPDATED, template.updateZones)).to.be.true;
+      expect(on).to.be.calledWith(Events.TEMPLATE_UPDATED, template.updateZones);
     });
   });
 
@@ -29,7 +40,7 @@ suite('Template', ({ expect, spy }) => {
 
       template.updateZones(<any>{ name: target, rule, zones });
 
-      expect(set.calledWith({ zones, rule, isActive: true })).to.be.true;
+      expect(set).to.be.calledWith({ zones, rule, isActive: true });
     });
 
     it('should set inactive state', () => {
@@ -40,7 +51,7 @@ suite('Template', ({ expect, spy }) => {
 
       template.updateZones(<any>{ name });
 
-      expect(set.calledWith({ zones: {}, rule: undefined, isActive: false })).to.be.true;
+      expect(set).to.be.calledWith({ zones: {}, rule: undefined, isActive: false });
     });
 
     it('should not call set()', () => {
