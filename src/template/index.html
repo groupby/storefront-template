@@ -1,0 +1,6 @@
+<div if="{ $template.isActive }">
+  <yield>
+    <!-- <gb-zone each="{ zone, name in $template.zones }"></gb-zone> -->
+    <div each="{ zone, name in $template.zones }" data-is="gb-{ zone.type.replace('_', '-') }-zone" zone="{ zone }"></div>
+  </yield>
+</div>
