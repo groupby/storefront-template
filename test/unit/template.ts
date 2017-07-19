@@ -2,10 +2,13 @@ import { Events } from '@storefront/core';
 import Template from '../../src/template';
 import suite from './_suite';
 
-suite('Template', ({ expect, spy }) => {
+suite('Template', ({ expect, spy, itShouldBeConfigurable, itShouldHaveAlias }) => {
   let template: Template;
 
   beforeEach(() => template = new Template());
+
+  itShouldBeConfigurable(Template);
+  itShouldBeConfigurable(Template, 'template');
 
   describe('constructor()', () => {
     describe('state', () => {
