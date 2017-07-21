@@ -1,6 +1,6 @@
 {
   "name": "@storefront/template",
-  "version": "0.0.10-development",
+  "version": "1.3.1",
   "description": "StoreFront template component",
   "keywords": [
     "storefront",
