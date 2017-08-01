@@ -28,7 +28,7 @@ class Template {
 
 interface Template extends Tag<Template.Props, Template.State> { }
 namespace Template {
-  export interface Props {
+  export interface Props extends Tag.Props {
     target: string;
   }
 

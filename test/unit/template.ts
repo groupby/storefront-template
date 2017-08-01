@@ -8,7 +8,7 @@ suite('Template', ({ expect, spy, itShouldBeConfigurable, itShouldHaveAlias }) =
   beforeEach(() => template = new Template());
 
   itShouldBeConfigurable(Template);
-  itShouldBeConfigurable(Template, 'template');
+  itShouldHaveAlias(Template, 'template');
 
   describe('constructor()', () => {
     describe('state', () => {

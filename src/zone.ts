@@ -13,7 +13,7 @@ abstract class Zone {
 
 interface Zone extends Tag<Zone.Props> { }
 namespace Zone {
-  export interface Props {
+  export interface Props extends Tag.Props {
     zone: Store.Zone;
   }
 }
