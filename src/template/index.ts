@@ -5,13 +5,18 @@ import { alias, configurable, tag, Events, Store, Tag } from '@storefront/core';
 @tag('gb-template', require('./index.html'))
 class Template {
 
+  $sayt?: any;
   state: Template.State = {
     isActive: false,
     zones: {}
   };
 
   init() {
-    this.flux.on(Events.TEMPLATE_UPDATED, this.updateZones);
+    if (this.$sayt) {
+      this.flux.on(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, this.updateZones);
+    } else {
+      this.flux.on(Events.TEMPLATE_UPDATED, this.updateZones);
+    }
   }
 
   updateZones = (template: Store.Template) => {
