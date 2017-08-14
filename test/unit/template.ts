@@ -25,7 +25,6 @@ suite('Template', ({ expect, spy, itShouldBeConfigurable, itShouldHaveAlias }) =
     it('should listen for TEMPLATE_UPDATED if no $sayt alias', () => {
       const on = spy();
       template.flux = <any>{ on };
-      template.expose = () => null;
 
       template.init();
 
@@ -36,7 +35,6 @@ suite('Template', ({ expect, spy, itShouldBeConfigurable, itShouldHaveAlias }) =
     it('should listen for AUTOCOMPLETE_TEMPLATE_UPDATED if $sayt alias found', () => {
       const on = spy();
       template.flux = <any>{ on };
-      template.expose = () => null;
       template.$sayt = true;
 
       template.init();
