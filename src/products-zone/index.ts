@@ -1,17 +1,15 @@
-import { alias, tag, ProductTransformer, Store, Structure, Tag } from '@storefront/core';
+import { alias, tag, CoreSelectors, Store, Structure, Tag } from '@storefront/core';
 import Zone from '../zone';
 
 @alias('zone')
 @tag('gb-products-zone', require('./index.html'))
 class ProductsZone {
 
-  structure: Structure = this.config.structure;
-
   init() {
     const { products } = this.props.zone;
     this.state = {
       ...this.props.zone,
-      products: products.map(ProductTransformer.transformer(this.structure))
+      products: products.map(this.select(CoreSelectors.productTransformer))
     };
   }
 }
