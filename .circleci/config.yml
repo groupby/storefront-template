@@ -20,19 +20,22 @@ jobs:
       - run:
           name: Install
           command: yarn
-      - save_cache:
-          <<: *node_cache
-          paths:
-            - ~/project/node_modules
       - run:
           name: Update Lockfile
           command: greenkeeper-lockfile-update
       - run:
           name: Build
-          command: yarn start build
+          command: yarn build
       - run:
           name: Upload Lockfile
           command: greenkeeper-lockfile-upload
+      - run:
+          name: Revert Lockfile
+          command: git checkout yarn.lock
+      - save_cache:
+          <<: *node_cache
+          paths:
+            - ~/project/node_modules
       - save_cache:
           <<: *build_cache
           paths:
@@ -56,7 +59,7 @@ jobs:
       - restore_cache:
           <<: *node_cache
       - restore_cache:
-          key: build_cache
+          key: build_cache-{{ .Branch }}
       - run:
           name: Release
           command: yarn start release || true
@@ -68,7 +71,7 @@ jobs:
       - restore_cache:
           <<: *node_cache
       - restore_cache:
-          key: docs_cache
+          key: docs_cache-{{ .Branch }}
       - run:
           name: Documentation
           command: |
@@ -97,7 +100,7 @@ jobs:
               echo "no change in generated documentation"
             fi
       - save_cache:
-          key: docs_cache-{{ checksum "component.docs.json" }}
+          key: docs_cache-{{ .Branch }}-{{ checksum "component.docs.json" }}-{{ epoch }}
           paths:
             - ~/project/component.docs.json
 
