@@ -58,7 +58,7 @@
     "@storefront/testing": "^1.0.2",
     "@team-griffin/install-self-peers": "^1.1.1",
     "@types/chai": "^4.0.2",
-    "@types/node": "^8.0.18",
+    "@types/node": "^9.4.0",
     "@types/sinon": "^2.3.3",
     "@types/sinon-chai": "^2.7.28",
     "chai": "^4.1.0",
