@@ -23,23 +23,21 @@ suite('Template', ({ expect, spy, itShouldBeConfigurable, itShouldHaveAlias }) =
 
   describe('init()', () => {
     it('should listen for TEMPLATE_UPDATED if no $sayt alias', () => {
-      const on = spy();
-      template.flux = <any>{ on };
+      const subscribe = template.subscribe = spy();
 
       template.init();
 
-      expect(on).to.be.calledOnce
+      expect(subscribe).to.be.calledOnce
         .and.calledWith(Events.TEMPLATE_UPDATED, template.updateZones);
     });
 
     it('should listen for AUTOCOMPLETE_TEMPLATE_UPDATED if $sayt alias found', () => {
-      const on = spy();
-      template.flux = <any>{ on };
+      const subscribe = template.subscribe = spy();
       template.$sayt = true;
 
       template.init();
 
-      expect(on).to.be.calledOnce
+      expect(subscribe).to.be.calledOnce
         .and.calledWith(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, template.updateZones);
     });
   });

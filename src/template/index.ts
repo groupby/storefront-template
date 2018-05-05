@@ -13,9 +13,9 @@ class Template {
 
   init() {
     if (this.$sayt) {
-      this.flux.on(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, this.updateZones);
+      this.subscribe(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, this.updateZones);
     } else {
-      this.flux.on(Events.TEMPLATE_UPDATED, this.updateZones);
+      this.subscribe(Events.TEMPLATE_UPDATED, this.updateZones);
     }
   }
 
