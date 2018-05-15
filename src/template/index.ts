@@ -1,14 +1,14 @@
-import { alias, configurable, tag, Events, Store, Tag } from '@storefront/core';
+import { configurable, consume, provide, tag, Events, Store, Tag } from '@storefront/core';
 
 @configurable
-@alias('template')
+@consume('sayt')
+@provide('template')
 @tag('gb-template', require('./index.html'))
 class Template {
-
   $sayt?: any;
   state: Template.State = {
     isActive: false,
-    zones: {}
+    zones: {},
   };
 
   init() {
@@ -22,16 +22,17 @@ class Template {
   updateZones = (template: Store.Template) => {
     if (this.state.rule !== template.rule) {
       const isActive = template.name === this.props.target;
+
       this.set({
         isActive,
         rule: template.rule,
-        zones: isActive ? template.zones : {}
+        zones: isActive ? template.zones : {},
       });
     }
-  }
+  };
 }
 
-interface Template extends Tag<Template.Props, Template.State> { }
+interface Template extends Tag<Template.Props, Template.State> {}
 namespace Template {
   export interface Props extends Tag.Props {
     target: string;

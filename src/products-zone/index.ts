@@ -1,22 +1,27 @@
-import { alias, tag, ProductTransformer, Store, Structure, Tag } from '@storefront/core';
+import { provide, tag, ProductTransformer, Store, Structure, Tag } from '@storefront/core';
 import Zone from '../zone';
 
-@alias('zone')
+@provide('zone')
 @tag('gb-products-zone', require('./index.html'))
 class ProductsZone {
+  onBeforeMount() {
+    this.updateState();
+  }
 
-  structure: Structure = this.config.structure;
+  onUpdate() {
+    this.updateState();
+  }
 
-  init() {
-    const { products } = this.props.zone;
+  updateState() {
+    const { products, ...zone } = this.props.zone;
     this.state = {
-      ...this.props.zone,
-      products: products.map(ProductTransformer.transformer(this.structure))
+      ...zone,
+      products: products.map(ProductTransformer.transformer(this.config.structure)),
     };
   }
 }
 
-interface ProductsZone extends Tag<ProductsZone.Props> { }
+interface ProductsZone extends Tag<ProductsZone.Props> {}
 namespace ProductsZone {
   export interface Props extends Zone.Props {
     zone: Store.ProductsZone;

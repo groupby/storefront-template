@@ -13,23 +13,40 @@ suite('ProductsZone', ({ expect, spy, stub }) => {
   });
   afterEach(() => delete ProductsZone.prototype.config);
 
-  describe('constructor()', () => {
-    it('should set initial values', () => {
-      expect(productsZone.structure).to.eq(STRUCTURE);
+  describe('onBeforeMount()', () => {
+    it('should call updateState()', () => {
+      const updateState = (productsZone.updateState = spy());
+
+      productsZone.onBeforeMount();
+
+      expect(updateState).to.be.called;
     });
   });
 
-  describe('init()', () => {
+  describe('onUpdate()', () => {
+    it('should call updateState()', () => {
+      const updateState = (productsZone.updateState = spy());
+
+      productsZone.onBeforeMount();
+
+      expect(updateState).to.be.called;
+    });
+  });
+
+  describe('onUpdate()', () => {
     it('should update state', () => {
       const zone: any = { a: 'b', products: ['c', 'd', 'e'] };
       const transform = spy(() => 'x');
       const transformer = stub(ProductTransformer, 'transformer').returns(transform);
       productsZone.props = { zone };
 
-      productsZone.init();
+      productsZone.onUpdate();
 
       expect(productsZone.state).to.eql({ a: 'b', products: ['x', 'x', 'x'] });
-      expect(transform).to.be.calledWith('c').calledWith('d').calledWith('e');
+      expect(transform)
+        .to.be.calledWith('c')
+        .calledWith('d')
+        .calledWith('e');
     });
   });
 });
