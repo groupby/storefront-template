@@ -4,7 +4,7 @@ import suite from './_suite';
 
 const STRUCTURE = { a: 'b' };
 
-suite('ProductsZone', ({ expect, spy, stub }) => {
+suite('ProductsZone', ({ expect, spy, stub, itShouldProvideAlias }) => {
   let productsZone: ProductsZone;
 
   beforeEach(() => {
@@ -12,6 +12,8 @@ suite('ProductsZone', ({ expect, spy, stub }) => {
     productsZone = new ProductsZone();
   });
   afterEach(() => delete ProductsZone.prototype.config);
+
+  itShouldProvideAlias(ProductsZone, 'zone');
 
   describe('onBeforeMount()', () => {
     it('should call updateState()', () => {
