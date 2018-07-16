@@ -1,4 +1,4 @@
-import { configurable, consume, provide, tag, Events, Store, Tag } from '@storefront/core';
+import { configurable, consume, provide, tag, Events, Selectors, Store, Tag } from '@storefront/core';
 
 @configurable
 @consume('sayt')
@@ -14,8 +14,10 @@ class Template {
   init() {
     if (this.$sayt) {
       this.subscribe(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, this.updateZones);
+      this.updateZones(this.select(Selectors.autocompleteTemplate));
     } else {
       this.subscribe(Events.TEMPLATE_UPDATED, this.updateZones);
+      this.updateZones(this.select(Selectors.template));
     }
   }
 
