@@ -11,7 +11,7 @@ class Template {
     zones: {},
   };
 
-  init() {
+  onBeforeMount() {
     if (this.$sayt) {
       this.subscribe(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, this.updateZones);
       this.updateZones(this.select(Selectors.autocompleteTemplate));
