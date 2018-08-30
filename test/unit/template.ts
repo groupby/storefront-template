@@ -21,7 +21,7 @@ suite('Template', ({ expect, spy, stub, itShouldBeConfigurable, itShouldProvideA
     });
   });
 
-  describe('init()', () => {
+  describe('onBeforeMount()', () => {
     it('should listen for TEMPLATE_UPDATED if no $sayt alias and set initial state', () => {
       const subscribe = (template.subscribe = spy());
       const storeTemplate = { a: 'b' };
@@ -29,7 +29,7 @@ suite('Template', ({ expect, spy, stub, itShouldBeConfigurable, itShouldProvideA
       const updateZones = (template.updateZones = spy());
       select.withArgs(Selectors.template).returns(storeTemplate);
 
-      template.init();
+      template.onBeforeMount();
 
       expect(subscribe).to.be.calledOnce.and.calledWith(Events.TEMPLATE_UPDATED, template.updateZones);
       expect(updateZones).to.be.calledWithExactly(storeTemplate);
@@ -43,7 +43,7 @@ suite('Template', ({ expect, spy, stub, itShouldBeConfigurable, itShouldProvideA
       select.withArgs(Selectors.autocompleteTemplate).returns(storeTemplate);
       template.$sayt = true;
 
-      template.init();
+      template.onBeforeMount();
 
       expect(subscribe).to.be.calledOnce.and.calledWith(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, template.updateZones);
       expect(updateZones).to.be.calledWithExactly(storeTemplate);
