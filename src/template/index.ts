@@ -5,14 +5,14 @@ import { configurable, consume, provide, tag, Events, Selectors, Store, Tag } fr
 @provide('template')
 @tag('gb-template', require('./index.html'))
 class Template {
-  $sayt?: any;
+  aliases: Template.Aliases;
   state: Template.State = {
     isActive: false,
     zones: {},
   };
 
   init() {
-    if (this.$sayt) {
+    if (this.aliases.sayt) {
       this.subscribe(Events.AUTOCOMPLETE_TEMPLATE_UPDATED, this.updateZones);
       this.updateZones(this.select(Selectors.autocompleteTemplate));
     } else {
@@ -44,6 +44,10 @@ namespace Template {
     isActive: boolean;
     rule?: string;
     zones: { [key: string]: Store.Zone };
+  }
+
+  export interface Aliases {
+    sayt: any;
   }
 }
 
