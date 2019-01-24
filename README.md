@@ -1,4 +1,10 @@
-# StoreFront template
+# [MOVED] StoreFront template
+
+* * *
+
+**This repository has been moved to <https://github.com/groupby/storefront>.**
+
+* * *
 
 StoreFront `<gb-template>` component
 
